@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+      [포지션 position]
+      static : 기본값 : top, left, right, bottom 사용 불가
+      absolute: 상단박스(부모박스)를 기준으로 좌표 지정 : 부모바디
+      relative: 부모 박스를 기준으로 상위 박스가 움직이면 (좌표가 변동이되면) 안에 자식들도 같이 움직인다.
+      fixed:상단 박스가 없으면 화면 절대적 위치로 기준이 된다.
+      sticy:부모박스의 상대적 위치값에서 화면의 기준으로 절대위치
+    */
+    div {
+      width: 50px;
+      height: 50px;
+      border: 1px solid green;
+      margin-bottom: 10px;
+      background-color: rgba(0, 255, 34, 0.315);
+    }
+
+    .container {
+      border: 1px solid black;
+      width: 400px;
+      background-color: transparent;
+      height: 400px;
+      /* 안의 박스의 부모를 rrelative 해주면 박스의 absolute는 부모의 시작점이 된다 */
+      position: relative;
+    }
+
+    .box {
+      /* 혼자 값을 주면 body 상단으로 고정 */
+      /* position: absolute; */
+      /* position: fixed; */
+      position: sticky;
+
+      top: 20px;
+      left: 20px;
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div></div>
+    <div class="box">I am Box</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+  </div>
+</body>
+
+</html>

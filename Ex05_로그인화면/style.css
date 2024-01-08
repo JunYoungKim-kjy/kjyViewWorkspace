@@ -1,0 +1,107 @@
+ /* Fontawesome 4.7 */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); 
+ /* reset CSS */
+a{ text-decoration: none; color: #222;}
+h1,h2,h3,h4,h5,h6{ margin: 0; font-weight: normal;}
+button{ cursor: pointer; outline: none; border: none;}
+/* body의 font-fmaily를 상속받지 않음 */
+button,input,textarea{font-family: 'Monserrat' , sans-serif;}
+
+body{
+  margin: 0;
+  height: 100vh;
+  font-family: 'Monserrat' , sans-serif;
+}
+main{
+  height: 100%;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-form{
+  /* border: 2px solid; */
+  box-sizing: border-box;
+  width: 600px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  /* x축 y축 퍼지는 정도 그림자 색상 */
+  box-shadow: 0 0 20px darkgray;
+
+}
+.login-form h2{
+  text-transform: capitalize;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.sns-login{
+  /* 모바일 환경에서 sns 버튼 세로배치 하기 위한 display:flex */
+  display: flex;
+}
+
+.btn{
+  padding: 8px ;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #fff;
+  flex-grow: 1;
+  font-size: 12px;
+  /* width: calc(100%); */
+
+}
+.btn:last-child{
+  margin: 0;
+}
+.btn.facebook{
+  background-color: #1877F2;
+}
+.btn.twitter{
+  background-color: #1DA1F2;
+}
+.btn.twitch{
+  background-color: #410093;
+}
+.field{
+  margin: 20px 0;
+  display: flex;
+}
+.field label{
+  flex: 1;
+}
+.field input{
+  flex: 3;
+}
+.btn-login{
+  padding: 5px 40px;
+  color: #fff;
+  background-color: royalblue;
+  border-radius: 3px;
+  float: right;
+}
+
+@media (max-width:768px){
+  .login-form{
+    width: 100%;
+  }
+  .sns-login{
+    flex-direction: column;
+  }
+  .btn{
+    margin: 5px 0;
+  }
+  .btn:last-child{
+    margin-top: 10px;
+  }
+  .field{
+    flex-direction: column;
+    margin: 10px 0;
+  }
+  .btn-login{
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  
+}

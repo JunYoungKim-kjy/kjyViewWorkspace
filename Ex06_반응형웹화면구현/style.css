@@ -1,0 +1,71 @@
+ /* Fontawesome 4.7 */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); 
+ /* reset CSS */
+a{ text-decoration: none; color: #222;}
+h1,h2,h3,h4,h5,h6{ margin: 0;}
+button{ cursor: pointer; outline: none;}
+body{
+  margin: 0;
+  height: 100vh;
+  font-family: 'Monserrat' , sans-serif;
+  font-size: 15px;
+  line-height: 1.5em;
+}
+/* section */
+main{
+  display: flex;
+  justify-content: space-between;
+}
+/* media */
+.parent{
+  padding: 10px;
+  width: 600px;
+  background-color: gray;
+  display: flex;
+  box-sizing: border-box;
+  
+}
+.parent img{
+  flex: 1;
+  width: 100px;
+  /* height: 100%; */
+  margin-right: 10px;
+}
+.parent .child{
+  flex: 3;
+}
+
+/* 모바일 환경 */
+@media screen and (max-width: 767px) {
+  main{
+    flex-direction: column;
+  }
+  .parent{
+    flex-direction: column;
+    border-top: 10px solid #fff;
+  }
+  .parent .child{
+
+  }
+  .parent img{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+}
+
+/* 태블릿 환경 */
+@media (min-width:768px) and (max-width:1024px) {
+  main{
+    flex-direction: column;
+  }
+  .parent{
+    border-bottom: 10px solid #fff;
+    width: calc(100% - 20px);
+  }
+  .parent img{
+    width: 30%;
+  }
+  
+}

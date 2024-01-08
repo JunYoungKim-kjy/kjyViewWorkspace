@@ -1,0 +1,148 @@
+ /* Fontawesome 4.7 */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); 
+ /* reset CSS */
+
+ *{
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-self;
+}
+a{ text-decoration: none; color: #222;}
+h1,h2,h3,h4,h5,h6{ margin: 0;}
+button{ cursor: pointer; outline: none; border:none;}
+input,textarea,select{
+  outline: none;
+}
+button , input,textarea,select{
+  font-family: 'Noto Sans KR', sans-self;
+}
+body{
+  margin: 0;
+  height: 100vh;
+  font-family: 'noto Sans KR' , sans-serif;
+  font-weight: 300;
+  /* normal 400 */
+  /* 메인을 중앙으로 만들고 싶다 */
+}
+#main{
+  width: 1200px;
+  margin: auto;
+  border: 1px solid black;
+}
+/* header */
+#header{
+  text-align: center;
+}
+#header h1{
+  font-size: 32px;
+}
+#header h1 span{
+  color: crimson;
+}
+#header hr{
+  border: none;
+  width: 100px;
+  height: 3px;
+  background-color: skyblue;
+  margin: 10px auto;
+}
+/* form */
+#form{
+  border-top:  5px solid rgb(168, 168, 168);
+  margin: 30px;
+  padding: 20px;
+
+}
+#form .row{
+  display: flex;
+}
+#form .row input:hover,
+textarea:hover,
+select:hover{
+  border: 1px solid skyblue;
+  box-shadow: 0 0 5px skyblue;
+}
+#form .row .field input:focus,
+#form .row .field textarea:focus
+{
+  border: 1px solid skyblue;
+  box-shadow: 0 0 5px skyblue;
+  
+}
+#form .field{
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  flex: 1;
+}
+#form .field label{
+  margin: 5px 0;
+}
+#form .field input , select, textarea{
+  padding: 8px;
+  border: 1px solid #bbb;
+}
+#form .field em{
+  color: red;
+}
+#form textarea{}
+
+/* policy */
+.policy{}
+.policy h4{
+  margin: 10px 0;
+}
+.policy iframe{
+  border: 1px solid black;
+  width: 100%;
+  height: 100px;
+  border-radius: 3px;
+  padding: 7px;
+  /* iframe 외부 화면만 조절 할 수 있다 : 독립존재하는 html 문서이기 때문이다. */
+}
+.policy .btn-submit{
+  padding: 10px 50px;
+  border-radius: 3px;
+  background-color: skyblue;
+  color : white;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+.policy .btn-submit:hover{
+  background-color: royalblue;
+}
+
+/* select {
+  display: block;
+  border: 1px solid #999;
+  font-family: inherit;
+  background: url('./images/arrow.jpg') no-repeat 100% 50%;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  } */
+
+  /* select::-ms-expand {
+    display: none;
+  } */
+
+  @media screen and (max-width:768px) {
+    #main{
+      width: 100%;
+    }
+    #header h1{
+      font-size: 22px;
+    }
+    #form .row{
+      flex-direction: column;
+    }
+    #form .field{
+      margin: 5px 0;
+    }
+    .policy .btn-submit{
+      width: 100%;
+    }
+  }

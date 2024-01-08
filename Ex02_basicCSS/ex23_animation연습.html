@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Fontawesome 4.7 */
+    @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+    .container {
+      border: 1px solid black;
+      margin: auto;
+      width: 400px;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .title {
+      background-color: #eee;
+    }
+
+    .heart i {
+      font-size: 40px;
+      color: rgb(221, 59, 59);
+      margin-top: 10px;
+      animation: bouns 1s ease-in-out infinite;
+
+    }
+
+    @keyframes bouns {
+      0% {
+        transform: scale(1.2);
+      }
+
+      60% {
+        transform: scale(0.9);
+      }
+
+      100% {
+        transform: scale(1.2);
+      }
+    }
+
+    .star i {
+      font-size: 40px;
+      color: rgb(167, 167, 11);
+      margin-top: 10px;
+      animation: rotate1 2s ease-in-out infinite;
+    }
+
+    @keyframes rotate1 {
+      50% {
+        transform: rotateY(90deg);
+      }
+
+      100% {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .loading i {
+      font-size: 40px;
+      color: rgb(2, 2, 2);
+      margin-top: 10px;
+      animation: rotate2 1.3s linear infinite;
+    }
+
+    @keyframes rotate2 {
+      0% {
+        transform: rotateZ(0deg)
+      }
+
+      100% {
+        transform: rotateZ(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">애니매이션 예시 1</div>
+    <div class="contents">
+      <div class="heart">
+        <i class="fa fa-heart"></i>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="title">애니매이션 예시 2</div>
+    <div class="contents">
+      <div class="star">
+        <i class="fa fa-star"></i>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="title">애니매이션 예시 3</div>
+    <div class="contents">
+      <div class="mouse1"></div>
+      <div class="mouse2"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="title">애니매이션 예시 4</div>
+    <div class="contents">
+      <div class="loading">
+        <i class="fa fa-repeat"></i>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

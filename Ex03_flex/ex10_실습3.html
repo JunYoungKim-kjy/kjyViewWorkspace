@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+    }
+
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      /* 컬럼 일 때 자식요소 flex:1 너비값이 아니라 높이값을 줄 수 있음 */
+      text-align: center;
+    }
+
+    header {
+      background-color: red;
+      width: 100%;
+      flex: 1;
+
+    }
+
+    section {
+      display: flex;
+      flex: 8;
+    }
+
+    section article,
+    header,
+    footer,
+    .main>p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    section article:nth-child(1) {
+      background-color: yellow;
+      /* 부모가 가로정렬 일 때 flex 는 너비 */
+      flex: 1;
+    }
+
+    section article:nth-child(2) {
+      background-color: gray;
+      flex: 4;
+      padding: 0 20px;
+    }
+
+    section article:nth-child(3) {
+      background-color: greenyellow;
+      flex: 1;
+    }
+
+    footer {
+      width: 100%;
+      background-color: aqua;
+      flex: 1;
+    }
+
+    @media(max-width : 768px) {
+      .container {
+        height: 80vh;
+      }
+
+      section {
+        flex-direction: column;
+      }
+
+      section article:nth-child(2) {
+        order: -1;
+      }
+
+      footer {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>header</header>
+    <section>
+      <article class="left">left</article>
+      <article class="main">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum autem tenetur quibusdam
+          iure doloribus labore architecto sapiente harum! Nobis ipsum tenetur nihil voluptatibus inventore reiciendis
+          velit dicta facere quas error.</p>
+      </article>
+      <article class="right">right</article>
+    </section>
+    <footer>footer</footer>
+  </div>
+</body>
+
+</html>

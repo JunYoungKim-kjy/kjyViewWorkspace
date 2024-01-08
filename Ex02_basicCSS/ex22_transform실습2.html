@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      /* 수평 중앙 정렬 */
+      text-align: center;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 30px 0;
+    }
+
+    /* 글자를 수직으로 중간에 오고싶으면 */
+    /* 수직 중앙 정렬 : */
+    /* 1. line-hight: 높이만큰 주면 됨 */
+    /* 2. */
+    .box {
+      width: 400px;
+      height: 120px;
+      /* 컨텐츠를 중앙 정렬 시켜줌 */
+      margin: auto;
+      /* 글자의 높이 */
+      line-height: 120px;
+      /* border: 1px solid black; */
+      background-image: linear-gradient(red, orange);
+    }
+
+    .box:hover>span {
+      transform: translateY(-20px);
+    }
+
+    span {
+      font-size: 30px;
+      font-weight: 600;
+      color: #fff;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .a {
+      transition: all 0.4s ease-in-out 0s;
+    }
+
+    .b {
+      transition-delay: 0.2s;
+    }
+
+    .c {
+      transition-delay: 0.3s;
+    }
+
+    .d {
+      transition-delay: 0.4s;
+    }
+
+    .e {
+      transition-delay: 0.5s;
+    }
+
+    .f {
+      transition-delay: 0.6s;
+    }
+
+    .g {
+      transition-delay: 0.7s;
+    }
+
+    .h {
+      transition-delay: 0.8s;
+    }
+
+    .i {
+      transition-delay: 0.9s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="title">박스 위에 마우스를 올려보세요!</div>
+  <div class="box">
+    <span class="a">T</span>
+    <span class="b">R</span>
+    <span class="c">A</span>
+    <span class="d">N</span>
+    <span class="e"> S</span>
+    <span class="f">F</span>
+    <span class="g">O</span>
+    <span class="h">R</span>
+    <span class="i">M</span>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 1px solid black;
+      display: flex;
+
+    }
+
+    .parent {
+      border: 3px solid red;
+      display: flex;
+      flex: 1;
+    }
+
+    .parent div {
+      height: 200px;
+      flex: 1;
+    }
+
+    .parent div:nth-child(1) {
+      background-color: yellow;
+    }
+
+    .parent div:nth-child(2) {
+      background-color: rgb(101, 153, 24);
+    }
+
+    @media(max-width:768px) {
+      .container {
+        width: 100%;
+        flex-direction: column;
+
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="parent">
+      <div></div>
+      <div></div>
+    </div>
+    <div class="parent">
+      <div></div>
+      <div></div>
+    </div>
+    <div class="parent">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+
+</html>

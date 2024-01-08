@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .total {
+      border: 2px solid blue;
+      padding: 20px;
+      width: 300px;
+    }
+
+    .total div {
+      width: 10px;
+      height: 50px;
+      margin-bottom: 10px;
+      background-color: rgb(203, 163, 223);
+
+      transition-duration: 0.5s;
+    }
+
+    .total:hover>div {
+      /* width: 300px; */
+      /* 100% = 부모의 width값을 상대저으로 가져온다*/
+      width: 70%;
+
+    }
+
+    .box1 {
+      transition-delay: 0.8s;
+    }
+
+    .box2 {
+      transition-delay: 0.6s;
+    }
+
+    .box3 {
+      transition-delay: 0.4s;
+    }
+
+    .box4 {
+      transition-delay: 0.2s;
+    }
+
+    .box5 {
+      transition-delay: 0s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="total">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section {
+      width: 1200px;
+      display: flex;
+    }
+
+    article div,
+    .content1 {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .content1 {
+      background-color: yellow;
+    }
+
+    /*     
+    .content1 p {
+      height: 400px;
+      overflow: scroll; 
+    }
+    */
+
+    .content2 {
+      flex: 1;
+    }
+
+    .sub1 {
+      background-color: cornflowerblue;
+    }
+
+    .sub2 {
+      background-color: deeppink;
+    }
+
+    @media(max-width:768px) {
+      body {
+        align-items: flex-start;
+      }
+
+      section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <article class="content1">
+      <h2>content1</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda hic explicabo, veniam, saepe odio in harum
+        deleniti nihil impedit est, ea repudiandae sunt! Quidem consequatur nemo perferendis! Libero natus tempora quo
+        maiores unde dignissimos, laboriosam, inventore, quasi eius quibusdam minus? Dolorem cupiditate deserunt
+        laboriosam labore ducimus dignissimos nam officia deleniti accusantium soluta cumque quasi, nostrum voluptatem
+        voluptas autem accusamus libero sunt debitis fugit qui error odio saepe a amet. Consequuntur ab eos magnam, at,
+        ad doloribus, quaerat nihil aperiam quos laudantium soluta modi exercitationem inventore similique nobis
+        explicabo. Cupiditate, eligendi!</p>
+    </article>
+    <article class="content2">
+      <div class="sub1">
+        <h2>sub1</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos nesciunt aliquid ducimus laborum
+          tempore eveniet, quam asperiores quos, minus et libero odio animi ut repellendus? Ducimus, qui molestiae!
+          Minus, iure!</p>
+      </div>
+      <div class="sub2">
+        <h2>sub2</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos nesciunt aliquid ducimus laborum
+          tempore eveniet, quam asperiores quos, minus et libero odio animi ut repellendus? Ducimus, qui molestiae!
+          Minus, iure!</p>
+      </div>
+    </article>
+  </section>
+</body>
+
+</html>

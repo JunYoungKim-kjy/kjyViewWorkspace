@@ -7,10 +7,85 @@
 </head>
 
 <body>
-  
+  <!-- 인라인 자바스크립트 : 보통 특정 이벤트를 호출
+    alert(); // 화면에 알림창 띄어준다
+  -->
+  <!-- 버튼 1 -->
+  <button onclick="alert('안녕')">눌러보세요</button>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://www.localhost:8080">
+        <input type="button" value="인사" onclick="alert('hello!')">
+        <!-- <input type="submit" value="입장"> -->
+    </form>
+
 </body>
-<!-- 인라인 자바스크립트 : 보통 특정 이벤트를 호출
-  alert(); // 화면에 알림창 띄어준다
--->
-<button onclick="alert('안녕')">눌러보세요</button>
+</html>
+
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action=""> <!-- http://localhost/order.php?check1=green&check2=S -->
+        <h3>색상(단일선택)</h3>
+        <p>
+            <input type="radio" name="check1" value="red"> red <!-- 같은 name값을 가지면 택1의 조건 설정이 됨 (grouping)-->
+            <input type="radio" name="check1" value="green" checked> green
+            <input type="radio" name="check1" value="blue"> blue
+        </p>
+        <h3>사이즈(단일선택)</h3>
+        <p>
+            <input type="radio" name="check2" value="L"> Large
+            <input type="radio" name="check2" value="M" checked> Medium <!-- checked : 기본값 부여 -->
+            <input type="radio" name="check2" value="S"> Small
+        </p>
+        <h3>수량(다중선택)</h3> <!-- http://localhost/order.php?check1=green&check2=L&dum=1&dum=5&dum=10 -->
+        <p>
+          <!-- 서버 값을 넘길 때 항상 배열로 넘김 -->
+            <input type="checkbox" name="dum" value="1" checked> 1
+            <input type="checkbox" name="dum" value="5"> 5 
+            <input type="checkbox" name="dum" value="10"> 10
+            <input type="checkbox" name="dum" value="50"> 50
+            <input type="checkbox" name="dum" value="100"> 100
+        </p>
+        <input type="submit">
+    </form>
+    
+    </html>
+    
+    <!-- 버튼 2 -->
+    <form>
+      <input type="button" value="인사" >
+    </form>
+    
+    <!-- 버튼 3 -->
+    <input type="submit">
+    <form>
+      <select name="color">
+        <option value="1">red</option>
+        <option value="2">blue</option>
+        <option value="3">green</option>
+        <option value="4">orange</option>
+      </select>
+    </form>
+    이름 : <input type="text" name="name"><br>
+    나이 : <input type="number" name="age"><br>
+    핸드폰번호 : <input type="tel" name="phone"><br>
+    이메일:<input type="text" required><br>
+    <input type="file" name="photo">
+    <p>type hidden 사용자에게 보여주지않고 서버로 데이터만 넘겨줌</p>
+    <input type="hidden" name="ip" value="접속ip정보">
+</body>
 </html>

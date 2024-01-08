@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: scroll;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+    }
+
+    .container {
+      /* border: 2px solid; */
+      width: 1200px;
+      /* height: 100%; */
+      height: 60%;
+      display: flex;
+      justify-content: space-around;
+      /* flex-wrap: wrap; */
+      /* margin: 20px; */
+    }
+
+    .container .card {
+      border: 1px solid red;
+      width: 300px;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+
+      /* margin: 20px;*/
+
+    }
+
+    .card p {
+      overflow: auto;
+    }
+
+    .card img:hover {
+      transform: scale(1.5);
+    }
+
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      transition: 2s;
+    }
+
+    @media(max-width:768px) {
+
+      .container {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: flex-start;
+
+      }
+
+      .card {
+        margin: 10px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>Card #01</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis nobis explicabo ab corporis, tenetur porro
+        atque! Totam pariatur quibusdam sequi doloremque debitis sed soluta voluptates doloribus accusamus aperiam et
+        laboriosam adipisci maiores, tenetur praesentium aspernatur delectus exercitationem magnam rerum quos corrupti
+        veritatis blanditiis, vitae fuga? Consequatur asperiores impedit ea vel sapiente sed vitae aliquam atque nulla
+        quasi, non eaque officia sint expedita reprehenderit quisquam fugit amet laudantium, suscipit harum accusantium!
+        Sapiente aliquam aut obcaecati incidunt labore alias voluptates nesciunt, pariatur doloribus ut ad minima quis
+        officiis recusandae, saepe quae aliquid fugiat culpa. Dignissimos adipisci laborum corrupti beatae, delectus
+        aperiam!
+      </p>
+      <img src='/Ex04_flex심화/images/다운로드.gif'>
+    </div>
+    <div class="card">
+      <h2>Card #02</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima vitae ut fuga sint atque, voluptatum
+        commodi blanditiis suscipit incidunt totam?
+      </p>
+      <img
+        src='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fmedia.tenor.com%2Fnjgw4CvoedcAAAAC%2Flaumine.gif&type=sc960_832_gif'>
+    </div>
+    <div class="card">
+      <h2>Card #03</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, iure ea alias soluta et mollitia
+        doloremque unde velit porro animi delectus? Ullam, magni rem? Maxime qui accusamus voluptates vero atque.
+      </p>
+      <img src='http://placehold.it/300x150'>
+    </div>
+
+  </div>
+</body>
+
+</html>
