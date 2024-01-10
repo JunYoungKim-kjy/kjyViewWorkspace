@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+
+    .container {
+      height: 100%;
+    }
+
+    header {
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .lnb-inner,
+    .gnb-inner {
+      transition: all 500ms;
+    }
+
+    header.active .lnb-inner {
+      display: none;
+      height: 0;
+    }
+
+    header.active .gnb-inner {
+      background-color: #fff;
+      color: black;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.295);
+    }
+
+    .lnb-inner {
+      background-color: crimson;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .gnb-inner {
+      background-color: black;
+      height: 80px;
+      line-height: 80px;
+    }
+
+    section {}
+
+    section p {
+      color: #ddd;
+      font-size: 3em;
+      line-height: 1em;
+    }
+
+    .btn-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      font-size: 30px;
+      background-color: crimson;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 50%;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 300ms;
+    }
+
+    .btn-top.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="lnb-inner">LNB inner</div>
+      <div class="gnb-inner">GNB inner</div>
+    </header>
+    <section>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero earum modi placeat numquam quae fuga optio
+        magni rem perspiciatis eligendi tempora, officiis et nisi repudiandae nostrum adipisci iure aspernatur error
+        officia culpa qui laboriosam quod quam explicabo. Unde asperiores sequi veniam corrupti nostrum odit
+        necessitatibus quasi ducimus, alias itaque optio quaerat suscipit sapiente adipisci tenetur eius non repellendus
+        quod, amet voluptatum magni eum? Aperiam doloremque ipsum itaque vel quisquam consequatur culpa sequi id
+        maiores, aliquam excepturi. Nemo, quod! Dolorum, esse accusantium ratione illo dolor fugit, voluptates
+        cupiditate quisquam id molestias incidunt enim cum architecto veritatis ipsa! Quibusdam aliquam veritatis ab?
+      </p>
+    </section>
+  </div>
+  <a href="#" class="btn-top active"><i class="fa fa-arrow-up"></i></a>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  // 스크롤을 내리면 (윈도우 == 브라우저) 어떤 반응을 하고싶다 => 윈도우 객체를 가지고 와야한다.
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 50) {
+      $('header , .btn-top').addClass('active');
+    } else {
+      $('header , .btn-top').removeClass('active');
+
+    }
+  });
+</script>
+
+</html>

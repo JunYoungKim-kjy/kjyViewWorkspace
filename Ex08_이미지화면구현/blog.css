@@ -1,0 +1,110 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:300,400,500,700,700&display=swap');
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+/* reset CSS */
+a{ text-decoration: none; color: #222;}
+h1,h2,h3,h4,h5,h6{ margin: 0; font-weight: normal;}
+button{ cursor: pointer; outline: none; border: none;}
+input,textarea,select{
+  outline: none;
+}
+
+body{
+  margin: 0;
+  height: 100vh;
+  font-family: 'Montserrat' , sans-serif;
+  /* font-family: 'Noto Sans KR' , sans-serif; */
+}
+button,input,textarea,select{
+  /* font-family: 'Noto Sans KR' , sans-serif; */
+  font-family: 'Montserrat' , sans-serif;
+}
+#wrap{
+  width: 1000px;
+  margin: auto;
+}
+.items{
+  width: 100%;
+  display: flex;
+}
+.items .item{
+  display: flex;
+  flex-direction: column;
+}
+.items .item:nth-child(even){
+  flex-direction: column-reverse;
+}
+
+.items .item .img{
+  overflow: hidden;
+  width: 250px;
+}
+/* img 인라인 블럭 -> 자체적으로 마진이 있다. */
+.items .item .img img{
+  width: 100%;
+  display: block;
+  transition: all 600ms;
+}
+.items .item .img img:hover{
+  transform: scale(1.2);
+}
+.items .item .post{
+  background-color: mediumseagreen;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 250px;
+}
+.items .item .post h2{
+  font-weight: bolder;
+  padding: 20px;
+}
+.items .item .post p{}
+/* 모바일 환경 */
+@media screen and (max-width:767px){
+  #wrap{
+    width: 100%;
+  }
+  .items{
+    flex-direction: column;
+  }
+  .items .item:nth-child(even){
+    flex-direction: column;
+  }
+  .items .item .img{
+    width: 100%;
+    flex: 2;
+  }
+  .post{
+    flex: 1;
+  }
+
+}
+/* 화면 분할은 ctrl + 역슬러쉬 */
+/* 태블릿 환경 */
+@media (min-width:768px) and (max-width:1024px) {
+  #wrap{
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  #wrap .items{
+    flex-direction: column;
+    width: 100%;
+  }
+  .items .item:nth-child(even){
+    flex-direction: row-reverse;
+  }
+  .items .item{
+    flex-direction: row;
+  }
+  .items .item .post , .item .img{
+    flex: 1;
+    height: 100%;
+  }
+}
