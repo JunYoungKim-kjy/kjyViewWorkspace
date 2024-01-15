@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 500px;
+      margin: auto;
+    }
+
+    .header {
+      text-align: center;
+    }
+
+    .header h1 {}
+
+    .header h4 {}
+
+    .header hr {}
+
+    .main {}
+
+    .list {
+      padding: 20px;
+    }
+
+    .list div {}
+
+
+    .list .quiz {
+      display: flex;
+    }
+
+    .list span.false {
+      text-decoration: line-through;
+
+    }
+
+    .list .quiz span {
+      margin: 2px;
+      text-align: center;
+      flex: 1;
+    }
+
+    .list .quiz input {
+      flex: 1;
+    }
+
+    .btnline {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btnline button {
+      background-color: royalblue;
+      padding: 15px;
+      border-radius: 10px;
+      border: 0;
+      color: white;
+
+    }
+
+    .btnline .check {}
+
+    .btnline .count h3 {
+      margin: 20px 40px;
+    }
+
+    .btnline .reset {}
+  </style>
+</head>
+
+<body onload="makeQuiz()">
+  <div class="container">
+    <header class="header">
+      <h1>산수 문제를 풀어봅시다</h1>
+      <h4>수식을 계산하여 답을 입력하고 채점 버튼을 누르세요.</h4>
+      <hr>
+    </header>
+    <main class="main">
+      <section class="list">
+        <!-- <div class="quiz"><span></span><input type="number"></div>
+        <div class="quiz"><span></span><input type="number"></div>
+        <div class="quiz"><span></span><input type="number"></div>
+        <div class="quiz"><span></span><input type="number"></div> -->
+      </section>
+      <section class="btnline">
+        <button class="check">채점</button>
+        <div class="count">
+          <h3></h3>
+        </div>
+        <button class="reset">다시</button>
+      </section>
+    </main>
+  </div>
+</body>
+<script>
+  const list = document.querySelector('.list');
+  const reset = document.querySelector('.reset');
+  const counts = document.querySelector('.count>h3');
+  const check = document.querySelector('.check')
+  const slist = ['+', '-', '*', '/'];
+  let point = 0;
+  let answer = [0, 0, 0, 0];
+
+  reset.addEventListener("click", () => {
+    list.innerHTML = '';
+    document.querySelector('.count').innerHTML = '0점';
+    makeQuiz();
+  });
+  check.addEventListener("click", () => {
+    const input = document.querySelectorAll('.quiz>input');
+    const quizlist = document.querySelectorAll('.quiz');
+
+    let index = 0;
+    let total = 0;
+    input.forEach(input => {
+      if (input.value == answer[index]) {
+        total += 1;
+        questionArr[index].style.textDecoration = "none";
+      } else {
+        questionArr[index].style.textDecoration = "line-through";
+        questionArr[index].style.color = 'red';
+      }
+      index += 1;
+    })
+    // checkQuiz();
+  });
+
+  let i = 0;
+
+  function makeQuiz() {
+    for (let index in answer) {
+      //문제 생성
+      //--------------------------------------------
+      let a = parseInt(Math.random() * 20) + 1;
+      let op = slist[parseInt(Math.random() * 4)]
+      let b = parseInt(Math.random() * 20) + 1;
+      if (op === '+') {
+        answer[index] = a + b;
+      } else if (op === '-') {
+        answer[index] = a - b;
+      } else if (op === '*') {
+        answer[index] = a * b;
+      } else if (op === '/') {
+        answer[index] = parseInt(a / b);
+      }
+      //------------------------------------------
+      let question = document.createElement("div");
+      question.classList.add("quiz");
+      // span만들기
+      let quiz = document.createElement("span");
+      quiz.innerHTML = `${a} ${op} ${b} =`;
+      //input만들기
+      let input = document.createElement("input")
+      input.type = 'number';
+      //
+      question.appendChild(quiz);
+      question.appendChild(input);
+      list.appendChild(question);
+    };
+    // 문제를 4개 만들어준다
+  }
+  let index = 0;
+
+  // function checkQuiz() {
+  //   quizlist.forEach((e) => {
+  //     console.log(e)
+  //     console.log(input[index].value)
+  //     console.log(answer[index])
+  //     console.log(point)
+
+  //     if (input[index].value == answer[index]) {
+  //       point += 1;
+  //     } else {
+  //       console.log(e)
+  //       e.classList.add('false');
+  //     }
+  //     index += 1;
+  //   });
+  //   counts.textContent = `${point} 점`;
+  // }
+</script>
+
+</html>

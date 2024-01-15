@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .trans {
+      width: 200px;
+      height: 100px;
+      background-color: pink;
+      /* position: absolute; */
+      margin-top: 100px;
+      /* top: 100px; */
+      /* left: -200px; */
+      transition: 1000ms;
+      transform: translateX(-200px);
+    }
+
+    .trans.active {
+      transform: translateX(0px);
+      left: 0px;
+
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <button>토글</button>
+  <div class="trans"></div>
+</body>
+
+<script>
+  let btn = document.querySelector("button");
+  let isActive = true;
+
+  btn.addEventListener("click", (e) => {
+    let box = document.querySelector(".trans");
+    isActive ? box.classList.add('active') : box.classList.remove('active');
+    isActive = !isActive;
+
+  });
+
+  // function show() {
+  //   trans.classList.add('active');
+  //   isActive = !isActive;
+  // }
+
+  // function hide() {
+  //   trans.classList.remove('active');
+  //   isActive = !isActive;
+  // }
+</script>
+
+</html>

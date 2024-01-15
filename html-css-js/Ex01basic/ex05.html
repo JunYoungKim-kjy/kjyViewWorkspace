@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 250px;
+      height: 250px;
+      background-color: firebrick;
+      margin: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <div><input type="checkbox">test</div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+
+<script>
+  const chcbox = document.querySelector('input');
+  chcbox.addEventListener("click", (e) => {
+    console.log(e.currentTarget);
+    console.log("클릭했다");
+    e.preventDefault(); //기본 이벤트를 막는다
+
+  })
+  // 스크롤 해주는 이벤트 => 스크롤 못하게 막고싶다
+  // passive event는 기본 이벤트를 중단을 못한다.
+  document.addEventListener('wheel', e => {
+    console.log("스크롤중...")
+    e.preventDefault();
+  })
+</script>
+
+</html>

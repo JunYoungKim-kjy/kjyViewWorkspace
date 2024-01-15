@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- style -->
+<style>
+  .box {
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    margin: 5px;
+    /* transform: translateX(200px); */
+  }
+</style>
+
+<body>
+  <div class="box"></div>
+  <button class="btn" onclick="clicked()">네모 움직여</button>
+</body>
+<!-- script -->
+<script>
+  // const box = document.querySelector('.box');
+  // btn.addEventListener("click",()=>{
+
+  // });
+  // function clicked() {
+  //   const box = document.querySelector('.box');
+  //   // let box = document.getElementsByClassName('box');
+  //   box.style.transform = 'translateX(200px)'; // transform : 
+  //   box.style.transition = 'all 600ms';
+  //   // btn.textContent = '네모 돌아와';
+  //   btn.innerHTML = '네모 돌아와';
+  //   btn.document.add
+
+  //   // innerHTML vs textContent
+  //   // innerHTML -> 전체적인 HTML DOM tree 다시 생성
+  //   // testContent ->부분적으로 해당 요소만 리랜더링 리페인팅 됨
+
+  //   // text 변동이 많으면 textContent를 사용하는 것이 더 낫다.
+
+  // }
+  const box = document.querySelector('.box');
+  const btn = document.querySelector('.btn');
+  let isChecked = true;
+  btn.addEventListener("click", () => {
+    isChecked ? moveBox() : combackBox();
+  });
+
+  // btn.addEventListener("mouseout", () => {});
+
+  function moveBox() {
+    const box = document.querySelector('.box');
+    box.style.transform = 'translateX(200px)';
+    btn.textContent = '네모 돌아와';
+    box.style.transition = '2000ms';
+    isChecked = !isChecked;
+  }
+
+  function combackBox() {
+    const box = document.querySelector('.box');
+    box.style.transform = 'translateX(0px)';
+    btn.textContent = '네모 움직여';
+    box.style.transition = '2000ms';
+    isChecked = !isChecked;
+  }
+</script>
+
+</html>

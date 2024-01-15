@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+</body>
+<header>
+  <button class="up">오름차순</button>
+  <button class="down">내림차순</button>
+</header>
+<main>
+
+</main>
+
+</html>
+<script>
+  const userDataList = [{
+      id: 2,
+      name: '곰'
+    },
+    {
+      id: 10,
+      name: '여우'
+    },
+    {
+      id: 4,
+      name: '사자'
+    },
+    {
+      id: 29,
+      name: '기린'
+    },
+    {
+      id: 101,
+      name: '호랑이'
+    }
+  ];
+
+  const upbtn = document.querySelector('.up');
+  const downbtn = document.querySelector('.down');
+  const text = document.querySelector('main');
+  let tempArr = [...userDataList];
+  let data;
+  upbtn.addEventListener("click", () => {
+    tempArr.sort((a, b) => a.id > b.id ? -1 : 1);
+  })
+  downbtn.addEventListener("click", () => {
+    tempArr.sort((a, b) => a.id > b.id ? 1 : -1);
+  })
+  for (let key in tempArr) {
+    data += `●${tempArr[key].id} : ${tempArr[key].name}`
+  }
+  text.textContent = data;
+</script>

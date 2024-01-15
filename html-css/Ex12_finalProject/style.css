@@ -1,0 +1,448 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:300,400,500,700,700&display=swap');
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+/* reset CSS */
+a{ text-decoration: none; color: #222;}
+h1,h2,h3,h4,h5,h6{ margin: 0; font-weight: normal;}
+button{ cursor: pointer; outline: none; border: none;}
+ul{margin: 0;padding: 0;list-style: none;}
+button,input,textarea,select{
+  outline: none;
+  font-family: 'Montserrat' , sans-serif;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  margin: 0;
+  height: 100vh;
+  font-family: 'Montserrat' , sans-serif;
+  /* font-family: 'Noto Sans KR' , sans-serif; */
+  line-height: 1.5em;
+}
+.container{
+  height: 100%;
+}
+/* commom CSS */
+.inner{
+  /* border: 1px solid blue; */
+  width: 1300px;
+  margin: auto;
+}
+/* header */
+header{
+  /* border: 1px solid black; */
+  position: fixed;
+  /* position: absolute; */
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: all 300ms;
+  /* padding-top: 10px; */
+  z-index: 1000;
+}
+
+.banner{
+  /* border: 1px solid blue; */
+  background-color: black;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.lnb{
+  width: 1300px;
+  /* border: 1px solid plum; */
+  margin: auto;
+  text-align: right;
+}
+.lnb a{
+  color: #ddd;
+  margin: 5px;
+}
+.lnb a:last-child{
+  margin: 0;
+}
+.lnb a em{
+  color: #bbbbbbd0;
+}
+
+nav{
+  width: 1300px;
+  /* border: 1px solid red; */
+  /* background-color: lightgray; */
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 300ms;
+}
+.logo{
+  padding: 10px;
+}
+
+.gnb{
+  display: flex;
+}
+.gnb li{
+}
+.gnb li a{
+  margin-left: 20px;
+  color: #fff;
+}
+.gnb li a:hover{
+  color: #222;
+}
+/* Header with active class */
+header.active {
+  background-color: #fff;
+  box-shadow: 0 0 20px #00000020;
+}
+header.active .gnb li a{
+  color: #000;
+}
+header.active .banner{
+  display: none;
+}
+header.active nav{
+  padding: 5px;
+}
+
+
+/* intro */
+.intro{
+  /* border: 1px solid red; */
+  height: 70vh;
+  background: url("./images/intro.jpg") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  /* line-height: 1; */
+  
+}
+.heading{
+  text-align: center;
+  color: #fff;
+}
+.heading h1{
+  font-weight: bolder;
+  font-size: 56px;
+  margin-bottom: 30px;
+}
+.heading p{
+  font-size: 22px;
+  line-height: 1.5em;
+  padding: 0 150px;
+
+}
+/* about */
+.about-contents{
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-contents > div{
+  padding: 30px;
+}
+.desc{
+  text-align: center;
+  flex: 3;
+}
+.desc h2{
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.desc p{
+  font-size: 16px;
+  line-height: 1.7em;
+}
+.desc a{
+  margin-top: 30px;
+  color: rgb(189, 23, 23);
+  font-weight: bold;
+}
+.desc a:hover{
+  text-decoration: underline;
+}
+.photo{
+  flex: 2;
+}
+.photo img{
+  border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+  width: 100%;
+  /* height: 300px; */
+}
+
+
+/* ranking */
+.ranking{
+  /* background-color: #d1d1d1; */
+}
+.ranking-contents{
+  padding: 100px 0;
+  /* border: 1px solid blue; */
+}
+.ranking-contents h2{
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+.items{
+  display: flex;
+  justify-content: space-around;
+}
+.item{
+  width: 390px;
+  height: 620px;
+  border-radius: 30px 0 30px 0;
+  /* border: 1px solid red; */
+  overflow: hidden;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.589);
+}
+.up-image{
+  width: 100%;
+  height: 300px;
+}
+.up-image img{
+  /* width: 100%; */
+  /* 이미지 자체에는 사이즈를 fix하지 않음 */
+  /* 부모에 따라 유동적으로 바꿀 수 있게 해주는게 좋다 */
+  /* height 100%를 사용하려면 자기자신의 부모의 height 값이 있어야 한다 */
+  height: 100%;
+}
+.down-desc{
+padding: 25px;
+}
+.down-desc h3{
+  margin-top: 5px;
+  font-size: 25px;
+}
+.down-desc p{
+font-size: 22px;
+}
+.badge{
+  background-color: pink;
+  color: #fff;
+  padding: 2px 10px;
+  font-size: 16px;
+}
+.badge.good{
+  background-color: royalblue;
+}
+.badge.must{
+  background-color: crimson;
+
+}
+.btn-explore{
+  color: #c25a3a;
+  font-weight: 500;
+}
+.btn-explore img{
+  transition: all 500ms;
+}
+.btn-explore:hover img{
+  /* transform: translateX(1000px) */
+  margin-left: 150px;
+}
+
+/* testimonial */
+.testimonial{
+  padding: 100px 0;
+}
+.testimonial-content{
+  text-align: center;
+}
+.testimonial-content h2{
+  font-size: 30px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.testimonial-content h2 b{}
+.testimonial-content hr{
+  border: none;
+  background-color: royalblue;
+  height: 4px;
+  width: 120px;
+  margin: 30px auto;
+  /* hr은 블록 요소이다 */
+}
+
+
+.myslider{
+  /* border: 1px solid red; */
+}
+.myslider div{
+  /* border: 1px solid green; */
+  height: 300px;
+}
+
+.client{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.client img{
+  width: 85px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.client span{
+  font-size: 18px;
+  line-height: 1.7em;
+}
+.client span b{
+  display: block;
+}
+.comment{
+  font-size: 16px;
+  line-height: 1.6em;
+  padding: 10px;
+}
+
+
+
+/* callaction */
+.callaction{
+  background: url("./images/callaction-01.jpg") no-repeat center center;
+  background-size: cover;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 가상 선택자의 부모 */
+  position: relative;
+}
+/* 가상 선택자를 사용할 때 1. content:'' / before는 default가 인라인 요소 position 을 써서 인라인블록으로 요소 변경*/
+.callaction::before{
+  content:'';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  background: linear-gradient(to right bottom, rgba(78,0,78,0.4), rgba(104,104,1,0.4));
+
+}
+.callaction-heading{
+  text-align: center;
+  position: relative;
+  /* z-index: 1; */
+}
+.callaction-heading h2{
+  font-size: 50px;
+  color: #fff;
+  line-height: 1.3em;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+}
+.callaction-heading h2 span{
+  font-weight: 550;
+}
+/* a태그는 인라인 요소 */
+/* 하이퍼링크 등은 폰트가 상속이 안 됨 */
+.callaction-heading a{
+  background-color: #109e4b;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #fff;
+}
+/* festival */
+.festival{
+  height: 230px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;;
+}
+.festival-heading{
+  text-align: center;
+  /* border: 1px solid green; */
+  color: #fff;
+}
+.festival-heading h3{
+  font-weight: 50;
+}
+.festival-heading h3 span{
+  font-weight: 550;
+}
+.festival-heading .btns{
+  /* border : 1px solid red; */
+  margin-top: 20px;
+
+}
+.festival-heading .btns a{
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-left: 10px;
+}
+.festival-heading .btns a:nth-child(1){
+  color: #fff;
+background-color: orange;
+}
+.festival-heading .btns a:nth-child(2){
+background-color: #fff;
+}
+
+
+/* footer */
+footer{
+  background-color: #000;
+  padding: 20px;
+}
+.footer-contents{
+  display: flex;
+}
+.footer-contents ul{
+  text-align: center;
+
+}
+/* .footer-contents ul li{} */
+.footer-contents ul li a{
+  color: #666;
+}
+.footer-contents ul li a:hover{
+  text-decoration:underline;
+}
+.community{
+  flex: 1;
+}
+ul li:first-child,
+.help li:first-child,
+.help li:last-child{
+  color: white;
+}
+.network{
+  flex: 1;
+}
+.help{
+  flex: 2;
+}
+.help li:nth-child(2){
+  color: #666;
+  margin-bottom: 30px;
+}
+/* pageup-btn */
+.btn-top {
+  text-decoration: none;
+  font-size: 2em;
+  color: #fff;
+  background-color: skyblue;
+  border-radius: 50%;
+  padding: 5px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  transform: translateY(100px);
+  /* text-transform: uppercase; */
+  transition: all 300ms;
+}
+.btn-top.active {
+  transform: translateY(0);
+}
+.trigger{
+  /* display: none; */
+}

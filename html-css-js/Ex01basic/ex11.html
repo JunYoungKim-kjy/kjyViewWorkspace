@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+    }
+
+    header {
+      height: 100px;
+      background-color: darkgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search {}
+
+    .search span {}
+
+    .search input {
+      border: double;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+    }
+
+    main h1 {}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="search">
+        <span>유저ID</span><input type="text" placeholder="id 검색">
+      </div>
+    </header>
+    <main>
+      <h1>유저 정보 없음</h1>
+    </main>
+
+  </div>
+</body>
+
+</html>
+
+<script>
+  const input = document.querySelector('input');
+  const text = document.querySelector('main>h1');
+  const userDataList = [{
+      id: 123,
+      name: '박연미'
+    },
+    {
+      id: 1021,
+      name: '둘리'
+    },
+    {
+      id: 6021,
+      name: '또치'
+    },
+  ]
+  //keyup 참고
+  input.addEventListener("keyup", (e) => {
+    let user = userDataList.find(user => user.id == e.target.value);
+    text.textContent = user ? user.name : '유저 정보 없음';
+
+    // if (user) {
+    //   text.textContent = user.name;
+    // } else {
+    //   text.textContent = '유저 정보 없음';
+    // }
+
+
+
+
+
+    // userDataList.forEach((user) => {
+    // if (e.target.value == user.id) {
+    //   console.log(e.target.value);
+    //   text.textContent = user.name;
+    //   return ;
+    // } else {
+    //   text.textContent = "유저 정보 없음";
+    // }
+    // });
+  });
+</script>

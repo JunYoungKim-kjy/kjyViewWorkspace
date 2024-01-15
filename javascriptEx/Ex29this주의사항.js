@@ -1,0 +1,71 @@
+/*
+  자바스크립트는 함수의 상위 스코프가 정의되는 시점에서 값을 접근 할 수 있다.
+*/
+
+const cat = {
+  name: '나비',
+  age: 10,
+  callOwner: function () {
+    return `집사야 ${this.name} 배고파 밥줘`;
+  }
+}
+
+console.log(cat);
+// callOwner(); = this.callOwner
+console.log(cat.callOwner());
+
+function Pet(name, age) {
+  this.name = name;
+  this.age = age;
+  this.callOwner = function () {
+    return `집사야 ${this.name} 배고파 밥줘`;
+  }
+}
+
+const dog = new Pet('바둑', 5);
+console.log(dog.callOwner());
+
+Pet.prototype.play = function () {
+  return `${this.name} 이가 터그 놀이를 한다`;
+}
+Pet.prototype.eat = function () {
+  function eatWell() {
+    return `${this.name}가 냠냠 쩝접 한다`;
+  }
+  return eatWell();
+}
+
+console.log(dog.play());
+console.log(dog.eat());
+
+// this 키워드 
+// 1. 일반함수를 호출 할 때는 this가 최상위 객체다 global, window
+// 2. 메서드로 호출 할 땐 호출 된 객체를 가르킨다.
+// 3. new 키워드를 사용하여 객체를 생성했을 때는 this는 객체의 주소값이다.
+// 
+
+
+function sayHi() {
+  console.log("Hi~~~~ ");
+  console.log(this);
+  console.log(this === globalThis);
+}
+sayHi();
+
+let sayHello = () => {
+  console.log("Hello~~~~ ");
+  console.log(this); //지금 본인 실행 컨텍스트의 this 값이 된다
+  console.log(this === globalThis);
+}
+sayHello();
+
+const test = {
+  hi: sayHi,
+  hello: sayHello,
+  sayhihi: function () {
+    console
+  }
+}
+
+// test.sayHi();
+test.hi();

@@ -1,0 +1,162 @@
+@media screen and (max-width:768px) {
+/* width 고정 ==> 100% */
+/* row ==> column */
+
+/* header */
+.banner{
+  display: none;
+}
+.inner{
+  width: 100%;
+}
+.lnb{
+  /* width: 100%; */
+}
+nav{
+  /* width: 100%; */
+}
+
+
+/* intro */
+.intro{
+}
+.heading{}
+.heading h1{
+  font-weight: 400;
+  font-size: 40px;
+}
+.intro .heading p{
+  padding: 0 20px;
+}
+
+/* about */
+.about-contents{
+  flex-direction: column;
+  padding: 50px 0;
+}
+
+/* ranking */
+.ranking-contents{
+  margin: 30px;
+}
+.ranking-contents h2{
+  font-weight: bolder;
+}
+.items{
+  flex-direction: column;
+}
+.item{
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+/* testimonial */
+.testimonial-content{
+  
+}
+.testimonial-content h2{
+  font-size: 25px;
+}
+/* callaction */
+
+.callaction-heading h2{
+  font-size: 35px;
+}
+
+/* festival */
+.festival{
+  padding: 35px;
+}
+.festival-heading{
+  width: 100%;
+}
+.festival-heading h3{
+  font-size: 25px;
+}
+.btns a{
+  display: block;
+  margin: 10px;
+  
+}
+/* footer */
+.footer-contents{
+  flex-direction: column;
+}
+.footer-contents ul{
+  margin: 20px;
+}
+.help li:nth-child(2){
+  margin-bottom: 0;
+}
+.help li:last-child{
+  color: #666;
+}
+.trigger{
+  /* border: 2px solid black; */
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.trigger span{
+  background-color: #000;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  /* display: inline; */
+}
+.trigger span:nth-child(1){
+  top: 5%;
+  transition: all 300ms;
+}
+.trigger span:nth-child(2){
+  top: 50%;
+}
+.trigger span:nth-child(3){
+  transition: all 300ms;
+  top: 100%;
+}
+.trigger.active span:nth-child(2){
+  visibility: hidden;
+}
+.trigger.active span:nth-child(1),
+.trigger.active span:nth-child(3){
+  top: 50%;
+}
+.trigger.active span:nth-child(1){
+  transform: rotate(45deg);
+}
+.trigger.active span:nth-child(3){
+  transform: rotate(-45deg);
+}
+/* gnb */
+.gnb{
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  height: 100vh;
+  width: 250px;
+  align-items: flex-end;
+  visibility: hidden;
+}
+.gnb li{
+  margin: 5px 20px;
+  font-size: 20px;
+}
+.gnb li a{
+  color: #000;
+}
+.gnb li:hover,
+.gnb>li:first-child{
+  text-decoration: underline;
+}
+.gnb li:first-child{
+  margin-top: 80px;
+}
+.gnb.active{
+  visibility: visible;
+}
+}

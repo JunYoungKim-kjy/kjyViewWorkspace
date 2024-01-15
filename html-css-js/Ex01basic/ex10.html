@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>유저리스트</title>
+  <style>
+    .user {
+      border: 1px solid black;
+      text-align: center;
+      background-color: firebrick;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="users">
+      <div class="user">
+        <h2>이름</h2>
+        <h4>지역</h4>
+      </div>
+      <!-- <div class="user">
+        <h2>이름</h2>
+        <h4>지역</h4>
+      </div>
+      <div class="user">
+        <h2>이름</h2>
+        <h4>지역</h4>
+      </div>
+      <div class="user">
+        <h2>이름</h2>
+        <h4>지역</h4>
+      </div> -->
+    </div>
+  </main>
+
+</body>
+<script>
+  const userList = [{
+      id: 1,
+      name: "홍길동",
+      address: "서울"
+    },
+    {
+      id: 2,
+      name: "둘리",
+      address: "대전"
+    },
+    {
+      id: 3,
+      name: "또치",
+      address: "부산"
+    },
+  ]
+
+  const users = document.querySelectorAll('.users');
+  userList.forEach((userData) => {
+    users.innerHTML += `
+    <div class ="user">
+      <h2>${userData.name}</h2>
+      <p>${userData.address}</p>
+      </div>`;
+  });
+</script>
+
+</html>
