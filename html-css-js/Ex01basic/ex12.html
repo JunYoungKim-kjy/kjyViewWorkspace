@@ -10,39 +10,38 @@
   </style>
 </head>
 
-<body>
+<body onload="printList()">
+  <header>
+    <button class="up">오름차순</button>
+    <button class="down">내림차순</button>
+  </header>
+  <main>
+  </main>
 
 </body>
-<header>
-  <button class="up">오름차순</button>
-  <button class="down">내림차순</button>
-</header>
-<main>
-
-</main>
 
 </html>
 <script>
   const userDataList = [{
-      id: 2,
-      name: '곰'
-    },
-    {
-      id: 10,
-      name: '여우'
-    },
-    {
-      id: 4,
-      name: '사자'
-    },
-    {
-      id: 29,
-      name: '기린'
-    },
-    {
-      id: 101,
-      name: '호랑이'
-    }
+    id: 2,
+    name: '곰'
+  },
+  {
+    id: 10,
+    name: '여우'
+  },
+  {
+    id: 4,
+    name: '사자'
+  },
+  {
+    id: 29,
+    name: '기린'
+  },
+  {
+    id: 101,
+    name: '호랑이'
+  }
   ];
 
   const upbtn = document.querySelector('.up');
@@ -51,13 +50,22 @@
   let tempArr = [...userDataList];
   let data;
   upbtn.addEventListener("click", () => {
-    tempArr.sort((a, b) => a.id > b.id ? -1 : 1);
+    tempArr.sort((a, b) => a.id > b.id ? 1 : -1);
+    text.innerHTML = '';
+    printList()
   })
   downbtn.addEventListener("click", () => {
-    tempArr.sort((a, b) => a.id > b.id ? 1 : -1);
+    tempArr.sort((a, b) => a.id > b.id ? -1 : 1);
+    text.innerHTML = '';
+    printList();
   })
-  for (let key in tempArr) {
-    data += `●${tempArr[key].id} : ${tempArr[key].name}`
+  function printList() {
+    for (let idx in tempArr) {
+      let li = document.createElement("li");
+      li.innerHTML = `${tempArr[idx].id} : ${tempArr[idx].name}`;
+      text.appendChild(li);
+    }
+
   }
   text.textContent = data;
 </script>

@@ -37,14 +37,58 @@ let salGrade = [
 
 
 // 1. 부서별 평균월급여 
+dData.forEach((d)=>{
+  let cnt = 0;
+  let sum = 0;
+  sum = eData.reduce((sum,e)=>{
+    if(e.dno ==d.no){
+      cnt+=1;
+      return sum += +e.salary;
+    }else{
+      return sum;
+    }
+  },0);
+  // console.log(`d.no=${d.no}`)
+  // console.log(`cnt=${cnt}`)
+  let avg = sum / cnt;
+  console.log(`${d.dname}부서의 평균 월급은 ${avg} `)
+});
 
 
+console.log(`=============================================================================================`)
 // 2.부서별 전체 사원수와 커미션을 받는 사원들의 수
+dData.forEach((d)=>{
+  let arr = eData.filter((e)=> e.dno==d.no);
+  let comArr = arr.filter((c) => c.commission!=0);
+  let comCnt = comArr.length;
+  
+  console.log(`${d.dname}부서의 전체 사원수 = ${arr.length}이고 커미션을 받는 사원들의 수 =  ${comCnt} `)
+});
 
+
+console.log(`=============================================================================================`)
 // 3.부서별 최대 급여와 최소 급여
+console.log(`부서 최대최소급여`);
+console.log(`           max    min`);
+dData.forEach((d)=>{
+  let salArr =[];
+  for(let key in eData){
+    if(eData[key].dno == d.no){
+      salArr.push(eData[key].salary)
+    }
+  }
+  console.log(`${d.dname} = ${Math.max.apply(null,salArr)} :  ${Math.min.apply(null,salArr)} `)
 
+});
+
+console.log(`=============================================================================================`)
 // 4.부서번호가 30번인 사원들의 이름, 직급, 부서번호, 부서위치를 조회하시오.
-
+let data = dData.find((d)=>d.no==30).location;
+let tempArr =eData.filter((e)=>e.dno==30);
+tempArr.forEach((e)=>{
+  console.log(`이름 =${e.ename} ,직급 ${e.title}, 부서번호 ${e.dno}, 부서위치 ${data}`)
+})
+console.log(`=============================================================================================`)
 // 5.커미션을 받는 사원의 이름, 커미션, 부서이름,부서위치를 조회하시오.
 
 // 6.급여가 높은 순으로 조회하되 급여가 같을 경우 이름의 철자가 빠른 사원순으로 사번,이름,월급여를 조회하시오.
