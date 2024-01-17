@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // setTimeout(콜백함수,초(millsec)) // 1*1000=> 1초
+
+    let cnt = 0;
+    let sayHi = ()=>{
+      console.log('sayHi~~~', ++cnt);
+    };
+    // sayHi();
+    // sayHi();
+    // sayHi();
+    // sayHi();
+    // sayHi();
+    const interval = setInterval(sayHi,1000);
+    // setInterval(sayHi,500);
+    setTimeout(()=>{
+      clearInterval(interval);
+      console.log['10초 뒤에 실행했다']
+      interval;
+
+    },3000)
+
+  </script>
+  
+</body>
+</html>

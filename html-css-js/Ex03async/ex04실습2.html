@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1></h1>
+  <button>1초 후 초기화 재시작</button>
+  <button>시작</button>
+  <button>완전 종료</button>
+</body>
+</html>
+<script>
+  // html 태그 요소와 일반 변수를 구분하기 위해서 태그 객체는 앞에 $ 으로 구별해주기도 한다.
+  const $h1 = document.querySelector('h1');
+  const $btns = document.querySelectorAll('button');
+  let cnt = 0;
+
+  const sayHi = () =>{
+    $h1.textContent = `${++cnt} sayhi~`;
+  }
+  let interval = setInterval(sayHi, 50);
+
+  // const clickBtn = () => {
+  //   clearInterval(interval);
+  //   // 버튼을 다시 클릭하지 못하게
+  //   // $btns[0].removeEventListener("click", clickBtn);
+  //   setTimeout(()=>{
+  //     // clearInterval(interval);
+  //     cnt = 0;
+  //     interval = setInterval(sayHi,50);
+  //     // $btns[0].addEventListener("click",clickBtn);
+  //   },1000);
+  // };
+
+  let clickable = true;
+  const clickBtn = () => {
+    if(!clickable) return;
+    clearInterval(interval);
+    clickable = false;
+    setTimeout(()=>{
+      cnt = 0;
+      interval = setInterval(sayHi,50);
+      clickable = true;
+    },1000);
+  }
+  const exitBtn = () => {
+    clearInterval(interval);
+  };
+  $btns[0].addEventListener("click",clickBtn);
+  $btns[2].addEventListener("click",exitBtn);
+
+
+  
+  // const btns = document.querySelectorAll('button');
+  // let count = 0;
+  // const interval =setInterval(()=>{
+  //   h1.textContent=++count ;
+  // },500);
+
+  // btns[0].addEventListener("click",()=>{
+  //   console.log(clearInterval(interval));
+  //   h1.textContent='0';
+  //   count = 0;
+  //   setTimeout(() => {
+  //     clearInterval(interval);
+  //   }, 1000);
+  // });
+
+  // btns[1].addEventListener("click",()=>{
+  //   interval;
+  // });
+
+  // btns[2].addEventListener("click",()=>{
+  //   clearInterval(interval);
+  // });
+
+
+</script>

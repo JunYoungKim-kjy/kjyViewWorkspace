@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .container{
+      display: grid;
+      /* 아이템을  80% : 20% */
+      grid-template-columns: 7fr 3fr;
+      height: 100vh;
+      grid-gap: 20px;
+      background-color: darkgrey;
+    }
+    .grid{
+      border: 1px solid black;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      grid-auto-rows: 60px;
+      background-color: palegreen;
+      overflow-y: scroll;
+      grid-gap: 20px;
+    }
+    .box{
+      /* border: 1px solid red; */
+      background-color: darkorange;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      color: aliceblue;
+    }
+    nav{
+      
+      padding: 20px;
+
+    }
+    nav button{
+      width: 100%;
+      border: none;
+      background-color: royalblue;
+      height: 100px;
+      margin: 20px 0;
+      font-size: 20px;
+      color: azure;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="grid">
+    </div>
+    <nav>
+      <button class="addBtn">추가하기</button>
+      <button class="stopBtn">정지하기</button>
+    </nav>
+  </div>
+</body>
+</html>
+<script>
+  let data = ["서울","충주","부산","대구","경기","광주","서울","충주","부산","대구","경기","광주"];
+  const $grid = document.querySelector(".grid");
+  const addbtn = document.querySelector(".addBtn");
+  const stopbtn = document.querySelector(".stopBtn");
+  let cnt = 0;
+  let interval = null;
+
+  // let run = function(){
+
+  // }
+
+  let run = () => {
+    clearInterval(interval);
+    interval = setInterval(()=>{
+      addBox();
+    }, 300)
+  };
+
+  function addBox(){
+    if(cnt >= data.length){
+      cnt = 0;
+    }
+    let box = document.createElement('div');
+    box.classList.add('box');
+    box.innerHTML = data[cnt];
+    $grid.appendChild(box);
+    cnt+=1;
+  }
+  
+
+addbtn.addEventListener("click",run);
+stopbtn.addEventListener("click",function(){
+  clearInterval(interval);
+});
+</script>

@@ -90,8 +90,36 @@ tempArr.forEach((e)=>{
 })
 console.log(`=============================================================================================`)
 // 5.커미션을 받는 사원의 이름, 커미션, 부서이름,부서위치를 조회하시오.
+tempArr = eData.filter(e=> e.commission !=0);
+tempArr.forEach(e => {
+  let nameData;
+  let locData;
+  dData.forEach(d => {
+    if(d.no == e.dno){
+      nameData = d.dname;
+      locData = d.location;
+    }else{
+      return;
+    }
+  });
+  console.log(`이름:${e.ename} , 커미션:${e.commission}, 부서이름:${nameData}, 부서위치:${locData}`)
+});
 
+console.log(`=============================================================================================`)
 // 6.급여가 높은 순으로 조회하되 급여가 같을 경우 이름의 철자가 빠른 사원순으로 사번,이름,월급여를 조회하시오.
+tempArr = [...eData];
+tempArr.sort((obj1,obj2)=>{
+  if(obj1.commission < obj2.commission){
+    return 1;
+  }else if(obj1.commission > obj2.commission){
+    return -1;
+  }else{
+    return -1;
+  }
+});
+tempArr.forEach((e)=>{
+  console.log(`사번${e.id} : , 이름${e.ename}:, 월급여${e.commission}`)
+});
 
 // 7.DALLAS에서 근무하는 사원의 이름,직급,부서번호,부서명을 조회하시오.
 
