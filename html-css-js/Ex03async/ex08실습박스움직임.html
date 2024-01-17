@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 50px;
+      height: 50px;
+      background-color: royalblue;
+      margin: 5px 0;
+      position: relative;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</body>
+</html>
+<script>
+  const $boxs = [...document.querySelectorAll('.box')];
+  
+  $boxs.forEach(box => {
+    box.addEventListener("click",()=>{
+      move(box,500);
+    });
+  });
+  function move(element , endPoint){
+    // this.style.backgroundColor = `#000`;
+    // this.style.transform = `translate(500px)`;
+    // this.style.transition= `all 2500ms`;
+    
+    let left = element.style.left;
+
+    function draw(){
+      left++;
+      element.style.left = left+'px';
+      if(left == endPoint){
+        clearInterval(timer);
+      };
+    };
+    let timer = setInterval(draw, 1);
+  };
+  // $boxs[0].addEventListener("click",move);
+  // $boxs[1].addEventListener("click",move);
+  // $boxs[2].addEventListener("click",move);
+</script>

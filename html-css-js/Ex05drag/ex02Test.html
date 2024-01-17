@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      margin-top: 10px;
+      display: flex;
+    }
+
+    .box {
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+      margin-left: 10px;
+      font-size: 30px;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    input {
+      width: 80px;
+      font-size: 20px;
+      margin: 10px 5px;
+
+    }
+
+    .trash {
+      width: 500px;
+      height: 100px;
+      border: 1px solid black;
+      margin: 10px;
+      
+    }
+    .on{
+      background-color: red;
+    }
+  
+    .active{
+      background-color: forestgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+  <input type="text">
+  <div class="trash"></div>
+</body>
+
+</html>
+
+<script>
+const boxs = [...document.querySelectorAll(".box")];
+const $input = document.querySelector("input");
+const $trash = document.querySelector(".trash")
+const $container = document.querySelector(".container");
+const $body = document.querySelector('body');
+let num = 1;
+
+$container.addEventListener("click",e=>{
+  if(e.target.innerText) return;
+  e.target.innerText = num++;
+});
+
+$input.addEventListener("keyup",()=>{
+  let value = $input.value.replaceAll(" ",'');
+  if(value === '') return;
+  let getBox = boxs.find(box => box.innerHTML == value);
+  getBox && getBox.classList.add("on");
+
+});
+$input.addEventListener("keydown",()=>{
+  let getBox = boxs.find(box => box.classList.contains("on"));
+  getBox && getBox.classList.remove("on");
+  getBox && (getBox.innerHTML = '');
+});
+
+boxs.forEach(box => {
+    box.setAttribute("draggable","true");
+    box.addEventListener('dragstart',e=>{
+      if(e.target.innerText=='')return;
+      console.log(e.target);
+      box.classList.add("active");
+      e.dataTransfer.setData("num",e.target.innerText);
+    })
+    // console.log(box);
+  });
+
+  $trash.addEventListener('dragover', e =>{
+    e.preventDefault();
+  })
+  $trash.addEventListener('drop', e =>{
+    e.preventDefault();
+    let num = e.dataTransfer.getData('num');
+    if(num == '')return;
+    console.log(num);
+    let box = boxs.find(box=>box.innerText == num);
+    box.remove();
+})
+
+
+
+
+// $body.preventDefault();
+
+// boxs.forEach(box =>{
+//   box.addEventListener("click",()=>{
+//     if(box.textContent != '')return;
+//     box.textContent = num;
+//     box.setAttribute('data-id',`${num}`);
+//     // box.style.backgroundColor = "red";
+//     num+=1;
+//   });
+// });
+// boxs.forEach(box =>{
+//   box.addEventListener("dragstart",()=>{
+    
+//     box.classList.add("active");
+//     boxMove(box);
+    
+//   })
+  
+// });
+
+// function boxMove(box){
+//   box.addEventListener("dragover",box=>{
+//     box.preventDefault();
+//     console.log("끌");
+//   });
+//   $trash.addEventListener("drop",trash=>{
+//     console.log("끌었다");
+//     trash.preventDefault();
+//     box.classList.remove("active");
+    
+//   })
+// }
+// $input.addEventListener("keydown",(event)=>{
+//   if(event.keyCode != 13)return;
+//   let result = boxs.find(box=>box.textContent == $input.value);
+//   if(!result){
+//     return alert("값없음");
+//   };
+//     result.style.backgroundColor = "red";
+//   setTimeout(()=>{deleteValue(result)},2000);
+//   $input.value = "";
+// });
+
+// function deleteValue(e){
+//   e.textContent = "";
+//   e.style.backgroundColor = "#fff";
+// }
+
+
+
+// $container.addEventListener("dragstart",changeBox)
+// $trash.addEventListener("dragstart",changeBox)
+
+// let isChange = true;
+// function changeBox(){
+//   let box = isChange? $container : $trash;
+// box.addEventListener("dragover",e=>{
+//   // dragover를 할 수 있도록 기본이벤트 막기
+//   e.preventDefault();
+// });
+// box.addEventListener("drop",e=>{
+//   // box1.preventDefault();
+//   box.appendChild(span);
+//   box.appendChild(img);
+//   });
+// }
+
+</script>

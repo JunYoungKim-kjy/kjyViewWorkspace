@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타이머</title>
+  <style>
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .timer {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      height: 150px;
+      font-size: 100px;
+      font-weight: bold;
+      color: #222222;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="timer">
+      <div class="second"></div>
+    </div>
+  </main>
+</body>
+
+</html>
+<script>
+  let timer = document.querySelector(".timer");
+  let second = document.querySelector(".second");
+  // let startTime = new Date().getTime();
+  let startTime = 5.00;
+  let lastTime = 0.01;
+
+  let interval = setInterval(()=>{
+    // let lastTime = new Date().getTime();
+    // let diffTime = (startTime - lastTime)/1000+15;
+    lastTime+=0.01;
+    if(parseInt(diffTime) <= 0 ){
+    let diffTime = (startTime - lastTime).toFixed(2);
+    let label = `남은시잔 ${diffTime}초`;
+    second.textContent=label;
+      clearInterval(interval);
+      second.textContent="15초가 지났습니다."
+    }
+  },10);
+
+  
+
+// setTimeout(()=>{
+// clearInterval(interval)
+// second.textContent="15초가 지났습니다."
+// },5000)
+
+
+</script>

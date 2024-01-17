@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 50px;
+      height: 50px;
+      background-color: royalblue;
+      margin: 5px 0;
+      position: relative;
+    }
+    .testbox{
+      width: 50px;
+      height: 50px;
+      background-color: palevioletred;
+      margin: 5px 0;
+      position: relative;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="testbox"></div>
+</body>
+</html>
+<script>
+  const boxs = [...document.querySelectorAll(".box")];
+  
+  boxs.forEach((box)=>{
+    box.addEventListener("click",()=>{
+      move(box,500);
+    });
+  });
+
+  function move(e , endPoint){
+    let left = e.style.left;
+
+    function draw(){
+      left++;
+      e.style.left = left+"px";
+      if(left == endPoint){
+        clearInterval(timer);
+      };
+    };
+
+    let timer = setInterval(draw, 10);
+  };
+
+  const testbox = document.querySelector('.testbox');
+  testbox.addEventListener("click",()=>{
+    testbox.style.position = 'absolute';
+    // console.log(Math.sqrt(4));
+    testbox.animate({
+      top:["0px","500px"]
+    },{
+      duration : 500,
+      easing: 'ease-in',
+      iterations : 1,
+    })
+  });
+  
+</script>
