@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+}
+.container{
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    width: 100%;
+    height: 700px;
+}
+#header{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-bottom : 5px solid cornflowerblue; */
+    box-shadow: 1px 10px rgba(65, 105, 225, 0.45);
+    margin-bottom: 5px;
+}
+#main{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 20px 0px;
+    height: 400px;
+}
+#list{
+    /* border: 1px solid; */
+    overflow-y: scroll;
+}
+#list::-webkit-scrollbar{
+    display: none;
+}
+.item{
+    /* border: 1px solid black; */
+    border-radius: 7px;
+    box-shadow: 3px 5px gray;
+    margin: 10px;
+    padding: 3px;
+    
+}
+.item h2{
+    margin: 10px;
+}
+.item p{
+    margin: 10px 30px;
+}
+
+.item.delete{
+    transition: 1000ms;
+    transform: translateX(1000px) scaleY(0);
+}
+#input_box{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+#input_box .title{
+    display: flex;
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+#input_box .title label{
+    text-align: center;
+    line-height: 50px;
+    flex: 1;
+}
+#input_box .title input{
+    flex: 4;
+    padding-left: 10px;
+}
+#input_box .title input,
+#input_box textarea,
+#input_box .garbage{
+    border:1px solid rgba(123, 123, 123, 0.402);
+    border-radius: 5px;
+}
+#input_box textarea{
+    padding: 10px 0 0 10px;
+    flex: 2;
+    margin-bottom: 10px;
+}
+#input_box .addBtn{
+    flex: 1;
+    margin-bottom: 10px;
+}
+#input_box .garbage{
+    flex: 2;
+    text-align: center;
+    line-height: 90px;
+    font-size: 60px;
+}
+footer{
+    font-weight: bold;
+    text-align: center;
+}
+.textbox{
+    width: 250px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: skyblue;
+    position: fixed;
+    top: 110%;
+    left: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    transform: translate(-50% , -50%);
+    opacity: 0;
+    transition: 1000ms;
+    color: white;
+    line-height: 100px;
+    font-size: large;
+    font-weight: bold;
+}
+.textbox.run{
+    top: 85%;
+    opacity: 1;
+}

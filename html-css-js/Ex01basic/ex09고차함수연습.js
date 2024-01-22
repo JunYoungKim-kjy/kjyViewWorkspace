@@ -70,14 +70,19 @@ console.log(`===================================================================
 // 3.부서별 최대 급여와 최소 급여
 console.log(`부서 최대최소급여`);
 console.log(`           max    min`);
+let idx = 0;
 dData.forEach((d)=>{
-  let salArr =[];
+  let salArr = [];
   for(let key in eData){
     if(eData[key].dno == d.no){
       salArr.push(eData[key].salary)
     }
   }
-  console.log(`${d.dname} = ${Math.max.apply(null,salArr)} :  ${Math.min.apply(null,salArr)} `)
+  if(salArr[idx++] != null){
+    console.log(`${d.dname} = ${Math.max.apply(null,salArr)} :  ${Math.min.apply(null,salArr)} `)
+  }else{
+    console.log(`${d.dname} = NoData :  NoData `)
+  }
 
 });
 
@@ -134,19 +139,162 @@ console.log(`===================================================================
 // 8.이름에 A 가 들어가는 사원의 이름,부서명을 조회하시오.
 
 // 9.ALLEN과 같은 부서에 근무하는 사원의 이름, 부서번호를 조회하시오.
+let num=0;
+tempArr.sort((o1,o2)=>{
+  if(o2.salary != o1.salary){
+    return o2.salary - o1.salary;
+  }else{
+    if(o2.ename < o1.ename){
+      return 1;
+    }else{
+      return -1;
+    }
+  }
+});
 
+tempArr.forEach(e => {console.log(`사번${e.id} : , 이름${e.ename}:, 월급여${e.salary}`)
+});
+console.log(`=============================================================================================`)
+// 7.DALLAS에서 근무하는 사원의 이름,직급,부서번호,부서명을 조회하시오.
+data = "DALLAS";
+dData.forEach(d=>{
+  if(d.location==data){
+    eData.filter(e=>e.dno==d.no).forEach(e=>{
+      console.log(`이름= ${e.ename} , 직급= ${e.title}, 부서번호= ${e.dno}, 부서명= ${d.dname}`)
+    })
+  }
+})
+
+console.log(`=============================================================================================`)
+// 8.이름에 A 가 들어가는 사원의 이름,부서명을 조회하시오.
+eData.filter(e=>{
+  for(let value of e.ename){
+    data = "A";
+    if(value==data){
+      data = dData.find(d=>d.no==e.dno).dname;
+      console.log(`이름= ${e.ename} ,부서명= ${data}`)
+      return;
+    }
+  }
+})
+console.log(`=============================================================================================`)
+// 9.ALLEN과 같은 부서에 근무하는 사원의 이름, 부서번호를 조회하시오.
+data = "ALLEN";
+eData.filter(e=>e.dno == eData.find(name => name.ename == data).dno).forEach(e=>{
+  if(e.ename==data)return;
+  console.log(`이름= ${e.ename}, 부서번호= ${e.dno} `);
+});
+
+
+console.log(`=============================================================================================`)
 // 10.사원명 'JONES'가 속한 부서명을 조회하시오.
+data = "JONES"
+console.log(`${data}가 속한 부서명= `+ dData.find(d=>d.no == eData.find(e=>e.ename == data).dno).dname );
+
+
+
+
+console.log(`=============================================================================================`)
 
 // 11.10번 부서에서 근무하는 사원의 이름과 10번 부서의 부서명을 조회하시오.
+data = "10";
+eData.filter(e=>e.dno==data).forEach(e=>{
+  console.log(`사원의 이름 = ${e.ename}, 부서명 = ${dData.find(d=>d.no==10).dname}`);
+})
 
+
+console.log(`=============================================================================================`)
 // 12.평균 월급여보다 더 많은 월급여를 받은 사원의 사원번호,이름,월급여 조회하시오.
+let avg = parseInt(eData.reduce((sum,sal)=>sum += parseInt(sal.salary),0)/eData.length);
+console.log("평균 급여 이상 수령하는 사원목록");
+eData.filter(e=>e.salary>avg).forEach(e=>{
+  console.log(`사원의 번호 = ${e.id}, 이름 = ${e.ename}, 급여 = ${e.salary}`);
+  
+})
 
+
+console.log(`=============================================================================================`)
 // 13.부서번호가 20인 사원중에서 최대급여를 받는 사원과 동일한 급여를 받는 사원의 사원번호, 이름을 조회하시오.
+data = 20;
+eData.filter(e=>
+  e.salary == eData.filter(e=>e.dno==data).reduce((max,e)=>{
+    let sal = parseInt(e.salary);
+    if(sal > max){
+      max = sal;
+      return max;
+    }
+    return max;
+  },0)).forEach(e=>{
+    console.log(`사원번호 = ${e.id} , 이름 = ${e.ename} , 급여 = ${e.salary}`);
+  });
+console.log(`=============================================================================================`)
+  // 14.사원 테이블에서 사원명과 해당 사원의 관리자명을 검색하시오
+  eData.forEach(e=>{
+    const name = e.ename;
+    const sname = eData.find(s=>s.id==e.sid)? eData.find(s=>s.id==e.sid).ename:"없음";
+    console.log(`사원의 이름 = ${name}, 관리자명 = ${sname}`)
+  })
+  
+  
+console.log(`=============================================================================================`)
+  // 15.20번 부서의 이름과 그 부서에 근무하는 사원의 이름을 출력하시오.
+  data = 20;
+  eData.filter(e=>e.dno==data).forEach(e=>{
+    let dname = dData.find(d=>d.no==e.dno).dname;
+    console.log(`부서이름 ${dname}, 부서에서 근무하는 사원 이름 : ${e.ename}`);
+  });
 
-// 14.사원 테이블에서 사원명과 해당 사원의 관리자명을 검색하시오
+console.log(`=============================================================================================`)
 
-// 15.20번 부서의 이름과 그 부서에 근무하는 사원의 이름을 출력하시오.
-
-// 16.사원 테이블에서 부서별 최대 급여를 받는 사원들의 사번, 이름, 부서코드, 급여를 검색하시오.
-
-// 17.Salgrade가 2등급인 사원들의 평균 급여보다 적게 받는 사원 정보를 검색하시오.
+  // 16.사원 테이블에서 부서별 최대 급여를 받는 사원들의 사번, 이름, 부서코드, 급여를 검색하시오.
+  dData.forEach(d=>{
+    const dNo= d.no;
+    const dList = eData.filter(e=>e.dno==dNo);
+    // 부서별로 필터 후 최대급여로 다시 필터
+    dList.filter(e=>{
+      // 최대 급여 구하기.
+      const max = dList.reduce((max,member)=>{
+        let sal = parseInt(member.salary);
+        if(sal > max){
+          max = sal;
+          return max;
+        }
+        return max;
+      },0);
+      // 최대급여구하기 끝
+      
+      // 최대급여와 같은 사원 필터
+      if(e.salary == max){
+        return e;
+      };
+      // 최대급여사원들의 배열
+    }).forEach(e=>{
+      console.log(`부서명 = ${d.dname} , 사번 : ${e.id} , 이름 : ${e.ename} , 부서코드 : ${e.dno}  `)
+    });
+  });
+  
+console.log(`=============================================================================================`)
+  // 17.Salgrade가 2등급인 사원들의 평균 급여보다 적게 받는 사원 정보를 검색하시오.
+  let salGradeList = [];
+  salGrade.forEach(grade=>{
+    const list = eData.filter(e=>{
+      if(e.salary >= grade.min && e.salary <= grade.max)return e;
+    });
+    salGradeList.push(list);
+  });
+  avg = parseInt(salGradeList[1].reduce((sum,sal)=>sum+= parseInt(sal.salary),0) / salGradeList[1].length);
+  eData.filter(e=>e.salary<avg).forEach(e=>{
+    console.log(e.ename);
+  })
+console.log(`=============================================================================================`)
+  let cnt =0;
+  avg = parseInt(eData.filter(e=>{
+  const grade2Level = salGrade[1];
+  if(e.salary >= grade2Level.min && e.salary <= grade2Level.max){
+    cnt++;
+    return e;
+  }
+}).reduce((sum,sal)=>sum+=parseInt(sal.salary),0)/cnt);
+eData.filter(e=>e.salary<avg).forEach(e=>{
+  console.log(e.ename);
+});
