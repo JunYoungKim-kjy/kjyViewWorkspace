@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="400"></canvas>
+  <input id="color" type="color">
+  <input id="" type="number">
+</body>
+</html>
+<script>
+  const canvas = document.querySelector("#canvas");  //1번
+  const myColor = document.querySelector("#color")
+  const ctx = canvas.getContext("2d");               //2번 필수사항.
+  let color = myColor.value;
+
+
+  let isDrwing = false;
+  let x=0;
+  let y=0;
+  
+  myColor.addEventListener("change",event=>{
+    color = event.target.value;
+  });
+  //마우스 누를 때
+  canvas.addEventListener("mousedown",e=>{
+    isDrwing = true;
+    x = e.offsetX;
+    y = e.offsetY;
+  });
+  canvas.addEventListener("mouseover",e=>{
+    isDrwing = false;
+  });
+  //마우스 움직일 때
+  canvas.addEventListener("mousemove",e=>{
+    if(!isDrwing)return;
+    ctx.fillRect(x,y,40,40);
+    // ctx.beginPath();
+    // ctx.strokeStyle = color;
+    // ctx.moveTo(x,y);
+    // ctx.lineTo(e.offsetX,e.offsetY);
+    // ctx.stroke();
+    x = e.offsetX;
+    y = e.offsetY;
+  });
+  //마우스 땔 때
+  canvas.addEventListener("mouseup",e=>{
+    isDrwing = false;
+  });
+
+
+
+</script>

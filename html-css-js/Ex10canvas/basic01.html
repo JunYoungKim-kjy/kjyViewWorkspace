@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="400"></canvas>
+</body>
+</html>
+<script>
+  const canvas = document.querySelector("#canvas");
+  const ctx = canvas.getContext("2d"); //x축과 y축으로 canvas는 작동함
+
+  ctx.fillStyle = "green";
+  // fill 은 채운다. stroke = 선(윤곽선)
+  ctx.fillRect(0,0,150,100);
+  ctx.strokeStyle = "blue";
+  ctx.strokeRect(150,100,150,100);
+
+  //직선 그리기
+  ctx.beginPath();    //직선 그릴 준비
+  ctx.moveTo(20,20);  //시작 좌표
+  ctx.lineTo(200,20); //끝   좌표
+  ctx.stroke();       //직선 표시.
+
+  //캔버스 초기화
+  // ctx.clearRect(0,0,canvas.width,canvas.height);
+
+</script>

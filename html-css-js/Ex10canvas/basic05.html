@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #canvas{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="800" height="400"></canvas>
+  <input id="color" type="color">
+</body>
+</html>
+<script>
+  const canvas = document.querySelector("#canvas");
+  const ctx = canvas.getContext('2d');
+  const myColor = document.querySelector("#color");
+  let color = myColor.value;
+  let dir=1;
+  let x=50;
+  let y=50;
+  let timer = null;
+
+  // 우선 그리기
+  ctx.beginPath();
+  ctx.arc(x,y,50,0,2*Math.PI);
+  ctx.stroke();
+
+  //키 입력시 이벤트 실행
+  // document.addEventListener("keydown",e=>{
+  //   switch(e.key){
+  //     case'w': if(y<=100)return;y-=2; break;
+  //     case'a': if(x<=100)return;x-=2; break;
+  //     case's': if(y>=canvas.height-100)return;y+=2; break;
+  //     case'd': if(x>=canvas.width-100)return;x+=2; break;
+  //   }
+    // if(e.key == "w"){
+    //   if(y<=100)return;
+    //   y-=2;
+    // }else if(e.key == "a"){
+    //   if(x<=100)return;
+    //   x-=2;
+    // }else if(e.key == "s"){
+    //   if(y>=canvas.height-100)return;
+    //   y+=2;
+    // }else if(e.key == "d"){
+    //   if(x>=canvas.width-100)return;
+    //   x+=2;
+    // }
+  //   timer = setInterval(draw,10);
+  // });
+
+  // 키 땔 때 화면 표시
+  // document.addEventListener("keyup",e=>{
+  //   clearInterval(timer)
+  // })
+  let draw = ()=>{
+    color = myColor.value;
+    ctx.strokeStyle = color
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.beginPath();
+    ctx.arc(x,y,50,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+    console.log('x='+x);
+    console.log('y='+y);
+    // 우로
+    if(dir==1){
+      x+=2;
+    }else if(dir==2){//좌로
+      x-=2;
+    }else if(dir==3){//위로
+      y-=2;
+    }else if(dir==4){//아래로
+      y+=2;
+    }
+
+    if(x>=canvas.width-50){
+      dir = 4;
+    }else if(y >= canvas.height-50){
+      dir = 2;
+    }else if(y<=48){
+      dir = 3;
+    }else if(y<=48){
+      dir = 1;
+    }
+
+  }
+
+  
+  // let draw = ()=>{
+  //   color = myColor.value;
+  //   ctx.strokeStyle = color
+  //   ctx.clearRect(0,0,canvas.width,canvas.height);
+  //   ctx.beginPath();
+  //   ctx.arc(x,y,100,0,2*Math.PI);
+  //   ctx.stroke();
+  // }
+  timer = setInterval(draw,10)
+
+
+</script>

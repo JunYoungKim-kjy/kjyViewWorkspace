@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #canvas{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="400"></canvas>
+  <input id="color" type="color">
+</body>
+</html>
+<script>
+  const canvas = document.querySelector("#canvas");
+  const ctx = canvas.getContext("2d");
+  const myColor = document.querySelector("#color");
+  let color = "blue";
+  let x = 0;
+  let y = 9;
+  ctx.fillStyle = color;
+  let interval = setInterval(()=>{
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+    ctx.beginPath();//시작하기
+    ctx.arc(x,y,10,0,2*Math.PI) //x , y , 반지름의 길이 , 방향횟수, 지름
+    ctx.fill();
+    x+=5;
+    if(x >=795){
+      x=0;
+      y+=19;
+      ctx.fillStyle = color;
+    }
+    if(y >= 410){
+      clearInterval(interval)
+    }
+  },10)
+  
+  myColor.addEventListener("change",event=>{
+    color = event.target.value;
+  })
+  canvas.addEventListener("click",()=>{
+    clearInterval(interval)
+  })
+
+</script>
