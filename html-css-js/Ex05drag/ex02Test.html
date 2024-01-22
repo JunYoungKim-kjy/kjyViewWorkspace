@@ -98,7 +98,10 @@ boxs.forEach(box => {
       console.log(e.target);
       box.classList.add("active");
       e.dataTransfer.setData("num",e.target.innerText);
-    })
+    });
+    box.addEventListener('dragend',e=>{
+      box.classList.remove("active");
+    });
     // console.log(box);
   });
 

@@ -109,19 +109,27 @@ console.log(`===================================================================
 // 6.급여가 높은 순으로 조회하되 급여가 같을 경우 이름의 철자가 빠른 사원순으로 사번,이름,월급여를 조회하시오.
 tempArr = [...eData];
 tempArr.sort((obj1,obj2)=>{
-  if(obj1.commission < obj2.commission){
-    return 1;
-  }else if(obj1.commission > obj2.commission){
-    return -1;
-  }else{
-    return -1;
+  if(obj1.commission != obj2.commission){
+    return obj2.commission - obj1.commission;
+  }else if (obj1.commission == obj2.commission){
+    // return console.log(obj2.ename.charAt(1));
+    // return obj2.ename.charAt(1) - obj1.ename.charAt(1);
   }
 });
 tempArr.forEach((e)=>{
-  console.log(`사번${e.id} : , 이름${e.ename}:, 월급여${e.commission}`)
+  console.log(`사번 ${e.id} : , 이름 ${e.ename}:, 급여 ${e.commission}`)
 });
 
+console.log(`=============================================================================================`)
 // 7.DALLAS에서 근무하는 사원의 이름,직급,부서번호,부서명을 조회하시오.
+data = "DALLAS"
+tempArr = eData.filter(e =>e.dno == (dData.find(d => d.location == data).no));
+tempArr.forEach(d=>{
+  console.log(`이름 ${d.ename},직급 ${d.title},부서번호 ${d.dno},부서명 ${data}`);
+})
+
+
+console.log(`=============================================================================================`)
 
 // 8.이름에 A 가 들어가는 사원의 이름,부서명을 조회하시오.
 

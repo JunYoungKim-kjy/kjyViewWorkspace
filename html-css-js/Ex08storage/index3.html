@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <form action="">
+
+    <input type="text">
+    <input type="submit" value="저장하기"> <!-- 동급 ==  <button>저장하기</button -->
+
+  </form>
+  <div class="save"></div>
+</body>
+</html>
+<script>
+  let num=0;
+  const $input = document.querySelector("input[type='text']");
+  const $saveBtn = document.querySelector("input[type='submit']")
+  const $save = document.querySelector(".save");
+  let inputData = [];
+  // printData(key);
+
+  
+  $saveBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    const data = $input.value;
+    saveData(key,data);
+    window.location.reload();
+  });
+
+
+  function saveData(key , data){
+    const value = JSON.stringify(data);
+    localStorage.setItem(`${key}`,value)
+  };
+
+
+  function printData(key){
+    const data = JSON.parse(`${key}`);
+    $save.innerHTML=data;
+  }
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <form action="">
+    <div class="save">
+      <input type="text">
+      <input type="submit" value="저장하기"> <!-- 동급 ==  <button>저장하기</button -->
+    </div>
+  </form>
+  <form action="">
+    <div class="delete">
+      <input type="text">
+      <input type="submit" value="삭제하기"> <!-- 동급 ==  <button>저장하기</button -->
+    </div>
+  </form>
+  <div class="saveData"></div>
+</body>
+</html>
+<script>
+  let num=0;
+  const saveInput = document.querySelector(".save>input[type='text']");
+  const $saveBtn = document.querySelector(".save>input[type='submit']");
+  const deleteInput = document.querySelector(".delete>input[type='text']");
+  const $deleteBtn = document.querySelector(".delete>input[type='submit']");
+  const $save = document.querySelector(".saveData");
+  let inputData = [];
+
+  // window.addEventListener('beforeunload', (event) => {
+  // // 명세에 따라 preventDefault는 호출해야하며, 기본 동작을 방지합니다.
+  // event.preventDefault();
+  // });
+  printData();
+  
+  $saveBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    setInputData();
+    const data = saveInput.value;
+    saveInput.value='';
+    const findData = inputData.find((id)=>id==data);
+    if(findData){
+      alert("값이 이미 존재함")
+      return;
+    }
+    inputData.push(data);
+    saveData("input_key",inputData);
+    // window.location.reload();
+    printData();
+    saveInput.focus();
+  });
+  $deleteBtn.addEventListener("click",(e)=>{
+    setInputData();
+    const data = deleteInput.value;
+    deleteInput.value= '';
+    const deleteIdx = inputData.indexOf(data);
+    if(deleteIdx==-1){
+      alert("값이 없습니다.")
+      return;
+    }
+    inputData.splice(-2,1)
+    saveData("input_key",inputData);
+    printData();
+    deleteInput.focus();
+
+  });
+
+  function setInputData(){
+    if(!localStorage.getItem("input_key"))return;
+      inputData = [...JSON.parse(localStorage.getItem("input_key"))];
+  }
+
+  function saveData(key , data){
+    const value = JSON.stringify(data);
+    localStorage.setItem(`${key}`,value)
+  };
+
+  function printData(){
+    const data = JSON.parse(localStorage.getItem(`input_key`));
+    $save.innerHTML=data;
+  };
+</script>
