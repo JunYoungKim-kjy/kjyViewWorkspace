@@ -1,13 +1,14 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 let key = {w:false, a:false, s:false, d:false};
-let player = { x: canvas.width /2 -25 , y:canvas.height - 50, size: 50, speed: 3, color: "blue"}
+let player = { x: 375 , y:550, size: 50, speed: 3, color: "blue"}
 let enemylist =[];
 let timer = 0;
+let isOver = false;
 
 // enemy만들기
 function makeEnemy(count){
-  if(timer %100 == 0){
+  if(timer %300 == 0){
     timer = 0;
     for(let i=0; i<count;i+=1){
       const enemy = {
@@ -32,11 +33,11 @@ draw = ()=>{
   enemylist.forEach(enemy=>{
     drawObj(enemy)
   })
+  isOver && clearInterval(interval)
   moveEnemyList();
   movePlayer();
   isCollison();
   updateEnemy();
-  console.log(enemylist);
 };
 
 
@@ -94,29 +95,42 @@ function movePlayer(){
 };
 
 // 플레이어의 박스가 들어갔는지 확인
-function inEnemy(px,py,enemy){
-  return (enemy.x < px && px < enemy.x + enemy.size)&&
-  (enemy.y < py && py < enemy.y + enemy.size);
-};
+// function inEnemy(px,py,enemy){
+//   return (enemy.x < px && px < enemy.x + enemy.size)&&
+//   (enemy.y < py && py < enemy.y + enemy.size);
+// };
+// function collison(enemy){
+//   // 플레이어의 좌측 상단
+//   if(player.x , player.y , enemy)return true;
+//   // 플레이어의 우측 상단
+//   else if(player.x + player.size , player.y , enemy)return true;
+//   // 플레이어의 좌측 하단
+//   else if(player.x , player.y + player.size , enemy)return true;
+//   // 플레이어의 우측 하단
+//   else if(player.x + player.size , player.y + player.size ,enemy)return true;
+//   else return false;
+// };
+
 function collison(enemy){
-  // 플레이어의 좌측 상단
-  if(player.x , player.y, enemy)return true;
-  // 플레이어의 우측 상단
-  else if(player.x + player.size , player.y)return true;
-  // 플레이어의 좌측 하단
-  else if(player.x , player.y + player.size)return true;
-  // 플레이어의 우측 하단
-  else if(player.x + player.size , player.y + player.size)return true;
+  if(player.x < enemy.x + enemy.size &&
+    player.x + player.size > enemy.x &&
+    player.y < enemy.y + enemy.size &&
+    player.y + player.size > enemy.y) return true;
   else return false;
-};
+}
 function isCollison(){
   enemylist.forEach(enemy => {
-    collison(enemy) ? enemy.color = "red" : enemy.color = " green"
+    if(collison(enemy)){
+      enemy.color = "red";
+      isOver = true;
+    }else{
+      enemy.color = "green";
+    }
   });
 };
 // 여기까지 확인절차
 
 
 init();
-setInterval(draw,10)
+let interval = setInterval(draw,10)
 // let addEnemy = setInterval(()=>{makeEnemy(parseInt(Math.random()*5)+3)},1000);
